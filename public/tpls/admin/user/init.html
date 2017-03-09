@@ -1,0 +1,59 @@
+<md-content class="md-padding ms-bg ms-hfit" layout-xs="column" layout="row">
+	<div flex layout="column" class="md-whiteframe-3dp ms-bg-white">
+		<div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+			<div>one</div>
+			<div>oncce</div>
+		</div>
+		<md-divider ></md-divider>
+		<div flex flex ng-scrollbars ng-scrollbars-config="muuCtrl.scrollCfg">
+			<md-table-container>
+			  	<table class="ms-table" md-table md-row-select=false multiple ng-model="muuCtrl.selected">
+				    <thead md-head md-order="muuCtrl.query.order" md-on-reorder="muuCtrl.getDevices">
+				      	<tr md-row>
+					        <th md-column md-order-by="device"><span>Device</span></th>
+					        <th md-column md-order-by="model"><span>Model</span></th>
+					        <th md-column>Location</th>
+					        <th md-column>Owner</th>
+					        <th md-column>OS Version</th>
+					        <th md-column>Battery</th>
+					        <th md-column md-numeric>Swipe(s)</th>
+					        <th md-column md-numeric></th>
+				      	</tr>
+				    </thead>
+				    <tbody md-body>
+				      	<tr md-row md-select="device" md-select-id="id" ng-repeat="device in muuCtrl.devices.data">
+					        <td md-cell>{{device.device}}</td>
+					        <td md-cell>{{device.model}}</td>
+					        <td md-cell>{{device.location}}</td>
+					        <td md-cell>{{device.owner}}</td>
+					        <td md-cell>{{device.version}}</td>
+					        <td md-cell>{{device.battery}}</td>
+					        <td md-cell>{{device.swipe}}</td>
+					        <td md-cell>
+						        
+						        <md-menu md-position-mode="target-right target" >
+						        	<div ng-click="$mdMenu.open($event)">
+							        	<md-tooltip md-direction="top">option</md-tooltip>
+							        	<md-icon  md-svg-src="../../../stylesheets/icons/misc/ic_more.svg" class="s24" style="color:#6E6E6E;"></md-icon>
+						        	</div>
+						        	<md-menu-content width="3" >
+										<md-menu-item ng-repeat="item in muuCtrl.options">
+							              <md-button ng-click="muuCtrl.action($index,device)">
+							                  <div layout="row" flex>
+							                    <p flex>{{item.option}}</p>
+							                    <md-icon md-menu-align-target md-svg-src="{{item.icon}}" class="s24" style="margin: auto 3px auto 0;color:#6E6E6E;"></md-icon>
+							                  </div>
+							              </md-button>
+							            </md-menu-item>
+						        	</md-menu-content>
+						        </md-menu>
+						        
+					        </td>
+				      </tr>
+				    </tbody>
+			  	</table>
+			</md-table-container>
+			<md-table-pagination md-limit="muuCtrl.query.limit" md-page="muuCtrl.query.page" md-total="{{muuCtrl.devices.total}}" md-page-select md-boundary-links></md-table-pagination>
+		</div>
+	</div>
+</md-content>

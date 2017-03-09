@@ -1,0 +1,30 @@
+<md-content class="ms-bg" ng-scrollbars ng-scrollbars-config="ctrl.navScrollCfg" style="height: 100%;">
+	<md-list layout-padding flex ng-cloak>
+        <md-subheader class="md-no-sticky ms-bg">MERCHANT</md-subheader>
+        <md-list-item ng-repeat="item in ctrl.nav.merchant" ui-sref="{{ item.uisref }}" ng-click="ctrl.activeModule(item)" ng-class="{'ms-active':ctrl.isActive(item.uisref)}">
+        	<md-icon  md-svg-src="{{ item.icon }}" class="s24" style="color:#4CAF50"></md-icon>
+    		<p> <span>{{ item.module }}</span> </p>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky ms-bg">DEVELOPER</md-subheader>
+        <md-list-item ng-repeat="item in ctrl.nav.developer" ui-sref="{{ item.uisref }}" ng-click="ctrl.activeModule(item)" ng-class="{'ms-active':ctrl.isActive(item.uisref)}">
+        	<md-icon  md-svg-src="{{ item.icon }}" class="s24" style="color:#009688 "></md-icon>
+    		<p> <span>{{ item.module }}</span> </p>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-subheader class="md-no-sticky ms-bg">ADMIN</md-subheader>
+        <md-list-item ng-repeat="item in ctrl.nav.admin" ui-sref="{{ item.uisref }}" ng-click="ctrl.activeModule(item)" ng-class="{'ms-active':ctrl.isActive(item.uisref)}">
+        	<md-icon  md-svg-src="{{ item.icon }}" class="s24" style="color:#455A64"></md-icon>
+    		<p> <span>{{ item.module }}</span> </p>
+        </md-list-item>
+        <md-divider ></md-divider>
+        <md-list-item ng-repeat="item in ctrl.nav.setting" ui-sref="{{ item.uisref }}" ng-click="ctrl.activeModule(item)" ng-class="{'ms-active':ctrl.isActive(item.uisref)}">
+        	<md-icon  md-svg-src="{{ item.icon }}" class="s24" style="color:#455A64"></md-icon>
+    		<p> <span>{{ item.module }}</span> </p>
+        </md-list-item>
+        <md-list-item ng-click="ctrl.logout()">
+        	<md-icon  md-svg-src="{{ ctrl.nav.logout.icon }}" class="s24" style="color:#455A64"></md-icon>
+    		<p> <span>{{ ctrl.nav.logout.module }}</span> </p>
+        </md-list-item>
+	</md-list>
+</md-content>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/">
+	<title>Log In | BBPOS EMM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+	<link rel="stylesheet" href="vendor/angular-material/angular-material.min.css">
+	<link rel="stylesheet" href="stylesheets/ms.min.css">
+</head>
+<body data-ng-app="msApp" ng-controller="appController as ctrl">
+    <div ng-hide="ctrl.isCompleted" class="bbpos-loading">
+        <div class="loader">Loading...</div>
+    </div>
+	<div class="login">
+		<section class="container">
+			<form ng-submit="login(loginForm.$valid)" name="loginForm" novalidate>
+				<section>
+					<div class="logo"></div>
+				</section>
+				<md-input-container class="md-block">
+			        <label>Login</label>
+			        <input required name="loginName" ng-model="moneyStore.loginName" minlength="1" maxlength="18" />
+			        <div ng-messages="loginForm.loginName.$error">
+		            	<div ng-message="required">This is required.</div>
+		          	</div>
+			    </md-input-container>
+				<md-input-container class="md-block">
+			        <label>Password</label>
+			        <input type="password" err-password="{{ctrl.isErr}}" required name="loginPassword" ng-model="moneyStore.loginPassword" minlength="1" maxlength="18" />
+			        <div ng-messages="loginForm.loginPassword.$error">
+		            	<div ng-message="required">This is required.</div>
+		          	</div>
+			    </md-input-container>
+			    <section class="submit">
+			    	<md-button class="md-raised md-primary" type="submit" ng-disabled="!loginForm.$valid">LOGIN</md-button>
+			    </section>
+		    </form>
+		</section>
+		<footer class="copyright">
+			<span>© 2017 BBPOS All rights reserved.</span>
+		</footer>
+	</div>
+	<script src="dist/lib/lib.min.js"></script>
+	<!-- Sign -->
+	<script src="dist/sign.js"></script>
+</body>
+</html>

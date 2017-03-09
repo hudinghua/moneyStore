@@ -1,0 +1,155 @@
+body {
+  font: 14px "Roboto", Helvetica, Arial, sans-serif; }
+
+.ms-app {
+  height: 100%;
+  background-color: #eee; }
+
+.login {
+  height: 100%;
+  background-image: url(../images/bbpos_bg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-origin: content-box;
+  position: relative; }
+  .login .container {
+    margin: auto;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 405px;
+    height: 220px;
+    border-radius: 5px;
+    padding: 15px 8px; }
+  .login .logo {
+    margin: auto;
+    width: 200px;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-image: url(../images/bbpos_logo.png);
+    background-size: contain; }
+  .login .submit {
+    text-align: center; }
+  .login .copyright {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    text-align: center; }
+    .login .copyright span {
+      display: block;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.54);
+      line-height: 24px; }
+
+.ms-logo {
+  width: 100px;
+  height: 35px;
+  background-image: url(../images/bbpos.png);
+  background-size: cover; }
+
+.ms-bg {
+  background-color: #EEE; }
+
+.ms-bg-white {
+  background-color: #fafafa; }
+
+.ms-hfit {
+  height: 100%; }
+
+.ms-table tbody tr:nth-child(even) {
+  background-color: #f5f5f5; }
+
+.ms-table tbody tr:hover {
+  background-color: #eeeeee; }
+
+.ms-active {
+  background-color: #E4E4E4; }
+
+#device_maps_id {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #EEE; }
+  #device_maps_id .amap-logo {
+    z-index: 1; }
+  #device_maps_id .amap-copyright {
+    z-index: 1; }
+
+.ms-device-tools {
+  font-size: 12px;
+  width: 96px;
+  cursor: pointer; }
+  .ms-device-tools:hover {
+    font-weight: bold; }
+  .ms-device-tools:hover svg {
+    fill: #4CAF50; }
+
+md-toolbar.md-table-toolbar form {
+  margin-left: 16px; }
+  md-toolbar.md-table-toolbar form input {
+    width: 100%;
+    margin: 0;
+    border: none;
+    color: rgba(0, 0, 0, 0.87); }
+    md-toolbar.md-table-toolbar form input:focus {
+      outline: none; }
+
+.bbpos-loading {
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #37474F; }
+  .bbpos-loading .load, .bbpos-loading .loader, .bbpos-loading .loader:before, .bbpos-loading .loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation: bbpos-loading 1.8s infinite ease-in-out;
+            animation: bbpos-loading 1.8s infinite ease-in-out; }
+  .bbpos-loading .loader {
+    margin: auto;
+    font-size: 10px;
+    position: relative;
+    top: 40%;
+    text-indent: -9999em;
+    -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s; }
+    .bbpos-loading .loader:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -3.5em;
+      -webkit-animation-delay: -0.32s;
+              animation-delay: -0.32s; }
+    .bbpos-loading .loader:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 3.5em; }
+
+@-webkit-keyframes bbpos-loading {
+  0%,
+  100%,
+  80% {
+    box-shadow: 0 2.5em 0 -1.3em #4caf50; }
+  40% {
+    box-shadow: 0 2.5em 0 0 #4caf50; } }
+
+@keyframes bbpos-loading {
+  0%,
+  100%,
+  80% {
+    box-shadow: 0 2.5em 0 -1.3em #4caf50; }
+  40% {
+    box-shadow: 0 2.5em 0 0 #4caf50; } }

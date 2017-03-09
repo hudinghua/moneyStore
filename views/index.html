@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/">
+	<title>BBPOS EMM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+	<link rel="stylesheet" href="vendor/angular-material/angular-material.min.css">
+	<link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="stylesheets/ms.min.css">
+</head>
+<body data-ng-app="msApp" ng-controller="appController as ctrl">
+    <div ng-hide="ctrl.isCompleted" class="bbpos-loading">
+        <div class="loader">Loading...</div>
+    </div>
+	<div layout="column" class="ms-app" ng-cloak>
+		<md-toolbar ng-include="'tpls/layout/header.html'" layout="row" md-theme="{{ctrl.homeTheme}}"></md-toolbar>
+		<section layout="row" flex style="position: relative;">
+			<md-sidenav ng-include="'tpls/layout/nav.html'" class="md-sidenav-left" md-component-id="navleft" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4"></md-sidenav>
+    		<md-content ng-include="'tpls/layout/content.html'" flex></md-content>
+		</section >
+	</div>
+	<script src="dist/lib/lib.min.js"></script>
+	<!-- App -->
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=da330a847b373584294b0479880a1c55"></script> 
+	<script src="dist/app.js"></script>
+</body>
+</html>

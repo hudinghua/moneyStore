@@ -1,0 +1,97 @@
+<div layout="column" style="height: 100%;">
+	<section flex="40" ng-controller="ms.device.mapController as mdmCtrl" style="position: relative;">
+		<div id="device_maps_id"></div>
+	</section>
+	<md-content layout="column" flex="60">
+		<md-divider ></md-divider>
+		<div class="md-toolbar-tools">
+			<div layout="row">
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_link.svg" class="s24"></md-icon>
+					<span>Add Device</span>
+				</div>
+				<md-divider></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_location.svg" class="s24"></md-icon>
+					<span>Location</span>
+				</div>
+				<md-divider ></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_message.svg" class="s24"></md-icon>
+					<span>Message</span>
+				</div>
+				<md-divider></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_ring.svg" class="s24"></md-icon>
+					<span>Ring</span>
+				</div>
+				<md-divider></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_mute.svg" class="s24"></md-icon>
+					<span>Mute</span>
+				</div>
+				<md-divider></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_device_lock.svg" class="s24"></md-icon>
+					<span>Device Lock</span>
+				</div>
+				<md-divider></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_clear_password.svg" class="s24"></md-icon>
+					<span>Clear Password</span>
+				</div>
+				<md-divider></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_wipe_data.svg" class="s24"></md-icon>
+					<span>Wipe Data</span>
+				</div>
+				<md-divider></md-divider>
+				<div layout="column" layout-align="center center" class="ms-device-tools">
+					<md-icon style="fill: #bdbdbd" md-svg-src="../../stylesheets/icons/deviceControl/ic_unlink.svg" class="s24"></md-icon>
+					<span>Unlink Device</span>
+				</div>
+			</div>
+		</div>
+		<md-toolbar class="md-table-toolbar md-default">
+			<md-divider ></md-divider>
+		  	<div class="md-toolbar-tools">
+		    	<md-icon style="fill: #6C6C6C" md-svg-src="../../stylesheets/icons/action/ic_search.svg" class="s24">search</md-icon>
+		    	<form flex name="filter.form" flex>
+			      	<input type="text" ng-model="query.filter" ng-model-options="filter.options" placeholder="search" aria-invalid="false">
+			    </form>
+			    <md-icon style="fill: #6C6C6C" md-svg-src="../../stylesheets/icons/action/ic_close.svg" class="s24">search</md-icon>
+		  	</div>
+		  	<md-divider ></md-divider>
+		</md-toolbar>
+		<div flex ng-scrollbars ng-scrollbars-config="mddCtrl.navScrollCfg">
+			<md-table-container>
+			  	<table md-table md-row-select multiple ng-model="mddCtrl.selected">
+				    <thead md-head md-order="mddCtrl.query.order" md-on-reorder="mddCtrl.getDevices">
+				      	<tr md-row>
+					        <th md-column md-order-by="device"><span>Device</span></th>
+					        <th md-column md-order-by="model"><span>Model</span></th>
+					        <th md-column>Location</th>
+					        <th md-column>Owner</th>
+					        <th md-column>OS Version</th>
+					        <th md-column>Battery</th>
+					        <th md-column md-numeric>Swipe(s)</th>
+				      	</tr>
+				    </thead>
+				    <tbody md-body>
+				      	<tr md-row md-select="device" md-select-id="id" md-auto-select ng-repeat="device in mddCtrl.devices.data"> <!-- md-on-deselect="mddCtrl.deselect"   | filter: filter.search | orderBy: mddCtrl.query.order | limitTo: mddCtrl.query.limit : (mddCtrl.query.page - 1) * mddCtrl.query.limit"-->
+					        <td md-cell>{{device.device}}</td>
+					        <td md-cell>{{device.model}}</td>
+					        <td md-cell>{{device.location}}</td>
+					        <td md-cell>{{device.owner}}</td>
+					        <td md-cell>{{device.version}}</td>
+					        <td md-cell>{{device.battery}}</td>
+					        <td md-cell>{{device.swipe}}</td>
+				      </tr>
+				    </tbody>
+			  	</table>
+			</md-table-container>
+			<md-table-pagination md-limit="mddCtrl.query.limit" md-page="mddCtrl.query.page" md-total="{{mddCtrl.devices.total}}" md-page-select md-boundary-links></md-table-pagination>
+			<!-- <data-md-table-pagination md-limit="mddCtrl.query.limit" md-page="mddCtrl.query.page" md-total="{{mddCtrl.devices.count}}"></data-md-table-pagination> --> <!--  -->
+		</div>
+	</md-content>
+</div>
